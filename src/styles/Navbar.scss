@@ -1,0 +1,21 @@
+.navbarOnScrollOn {
+  background: transparent;
+  animation-name: navbarTransparentOn;
+  animation-duration: .5s;
+}
+
+.navbarOnScrollOff {
+  background: black;
+  animation-name: navbarTransparentOff;
+  animation-duration: 1s;
+}
+
+@keyframes navbarTransparentOn {
+  from {background-color: black}
+  to {background-color: transparent}
+}
+
+@keyframes navbarTransparentOff {
+  from {background-color: transparent}
+  to {background-color: black}
+}
