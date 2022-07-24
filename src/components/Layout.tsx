@@ -1,4 +1,5 @@
-import { JsxElement } from 'typescript'
+import React, { ReactNode } from 'react'
+import '../styles/Layout.css'
 
 // interface LayoutProps {
 // 	title: string
@@ -13,23 +14,25 @@ type Props = {
 	overview: string | null
 	imgPath: string | null
 	adult: boolean | null
-	children?: JSX.Element | JSX.Element[] | string | string[]
+	children?: React.ReactNode
 }
 
-const Layout = ({ children, title, overview, imgPath, adult }: Props) => {
+const Layout: React.FC<Props> = ({
+	children,
+	title,
+	overview,
+	imgPath,
+	adult,
+}: Props) => {
 	return (
-		<div className={'bg-blue-400 h-screen w-full relative main'}>
-			{/*<img src={`https://image.tmdb.org/t/p/w300${imgPath}`}*/}
-			{/*     alt=""/>*/}
-
-			{/* <p>{title}</p> */}
-			{children}
-			{title ? <p>{title}</p> : <></>}
+		<div className={'h-screen w-full'}>
 			<img
-				className={'w-full h-screen'}
-				src={`https://image.tmdb.org/t/p/w300${imgPath}`}
+				id="movieLayout"
+				// className={'h-screen w-full absolute left-0 top-0 -z-10'}
+				src={require('../images/cropped-1920-1080-1241136.png')}
 				alt="test"
 			/>
+			{children}
 		</div>
 	)
 }

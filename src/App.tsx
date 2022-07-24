@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
 import Layout from './components/Layout'
+import { results } from '../src/movieDB'
 
 type movieType = {
 	adult: boolean
 	backdrop_path: string
-	genre_ids: []
+	genre_ids: number[]
 	original_language: string
 	original_title: string
 	overview: string
@@ -21,22 +22,26 @@ type movieType = {
 }
 
 function App() {
-	const API_KEY = 'e1a2c26e413c33d2bedda22168b9ca27'
-	const hrefAllMovies = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
+	// const API_KEY = 'e1a2c26e413c33d2bedda22168b9ca27'
+	// const hrefAllMovies = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
 
-	const [movies, setMovies] = useState<movieType[]>([])
-	const [movieLayout, setMovieLayout] = useState<movieType>()
-	// const [allSetUp, setAllSetUp] = useState(false)
+	// const [movies, setMovies] = useState<movieType[]>([])
+	const [movies, setMovies] = useState<movieType[] | null>(results)
+	// const [movieLayout, setMovieLayout] = useState<movieType>()
+	const [movieLayout, setMovieLayout] = useState<movieType | null>(results[2])
 
-	fetch(hrefAllMovies)
-		.then(response => {
-			return response.json()
-		})
-		.then(data => {
-			setMovies(data.results)
-			setMovieLayout(data.results[0])
-			// setAllSetUp(true)
-		})
+	// setMovies(results)
+	// setMovieLayout(results[0])
+
+	// fetch(hrefAllMovies)
+	// 	.then(response => {
+	// 		return response.json()
+	// 	})
+	// 	.then(data => {
+	// 		setMovies(data.results)
+	// 		setMovieLayout(data.results[0])
+	// 		// setAllSetUp(true)
+	// 	})
 
 	const onScroll = (): void => {
 		let elem = document.getElementsByTagName('nav')
@@ -66,18 +71,18 @@ function App() {
 				adult={movieLayout ? movieLayout?.adult : null}
 			>
 				<Navbar />
-				{/* <ul>
-					{movies.map(item => (
-						<>
+				<ul>
+					{movies!.map(item => (
+						<div key={item.id}>
 							<li key={item.id}>{item.title}</li>
 							<img
+								alt="Movies img"
 								style={{ height: '100px', width: '200px' }}
-								key={Date.now()}
 								src={`https://image.tmdb.org/t/p/w300${item.backdrop_path}`}
 							/>
-						</>
+						</div>
 					))}
-				</ul> */}
+				</ul>
 			</Layout>
 		</>
 	)
