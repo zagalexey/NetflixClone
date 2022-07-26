@@ -1,26 +1,17 @@
+.navbar {
+  background: transparent;
+}
+
 .navbarOnScrollOn {
   background: black;
-  -webkit-animation-name: navbarTransparentOn;
-          animation-name: navbarTransparentOn;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
+  animation-name: navbarTransparentOn;
+  animation-duration: 0.5s;
 }
 
 .navbarOnScrollOff {
   background: transparent;
-  -webkit-animation-name: navbarTransparentOff;
-          animation-name: navbarTransparentOff;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-}
-
-@-webkit-keyframes navbarTransparentOn {
-  from {
-    background-color: transparent;
-  }
-  to {
-    background-color: black;
-  }
+  animation-name: navbarTransparentOff;
+  animation-duration: 1s;
 }
 
 @keyframes navbarTransparentOn {
@@ -29,14 +20,7 @@
   }
   to {
     background-color: black;
-  }
-}
-@-webkit-keyframes navbarTransparentOff {
-  from {
     background-color: black;
-  }
-  to {
-    background-color: transparent;
   }
 }
 @keyframes navbarTransparentOff {
@@ -46,4 +30,6 @@
   to {
     background-color: transparent;
   }
-}/*# sourceMappingURL=Navbar.css.map */
+}
+
+/*# sourceMappingURL=Navbar.css.map */
