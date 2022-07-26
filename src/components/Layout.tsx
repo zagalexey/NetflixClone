@@ -25,7 +25,7 @@ const Layout: React.FC<Props> = ({
   adult,
 }: Props) => {
   return (
-    <div className={"h-screen w-full"}>
+    <div className={"h-screen w-screen"}>
       <div id={"movieBackground"}>
         <img
           id="movieLayout"

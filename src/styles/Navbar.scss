@@ -1,15 +1,18 @@
 .navbar {
     background: transparent;
+    //box-shadow: inset 0px 20px 22px -5px black;
 }
 
 .navbarOnScrollOn {
     background: black;
     animation-name: navbarTransparentOn;
-    animation-duration: 0.5s;
+    animation-duration: 0.8s;
 }
 
 .navbarOnScrollOff {
     background: transparent;
+    //box-shadow: inset 1px 10px 5px -1px;
+    //box-shadow: inset 0px 20px 22px black;
     animation-name: navbarTransparentOff;
     animation-duration: 1s;
 }
@@ -19,7 +22,6 @@
         background-color: transparent;
     }
     to {
-        background-color: black;
         background-color: black;
     }
 }

@@ -5,7 +5,7 @@
 .navbarOnScrollOn {
   background: black;
   animation-name: navbarTransparentOn;
-  animation-duration: 0.5s;
+  animation-duration: 0.8s;
 }
 
 .navbarOnScrollOff {
@@ -19,7 +19,6 @@
     background-color: transparent;
   }
   to {
-    background-color: black;
     background-color: black;
   }
 }

@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import { results } from "../src/movieDB";
 import MovieList from "./components/MovieList";
 import IntroMovie from "./components/IntroMovie";
+import MainPage from "./components/MainPage";
 
 type movieType = {
   adult: boolean;
@@ -65,7 +66,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className={'w-screen h-full'}>
       <Layout
         title={movieLayout ? movieLayout.title : null}
         overview={movieLayout ? movieLayout?.overview : null}
@@ -77,21 +78,11 @@ function App() {
           title={movieLayout!.title}
           overview={movieLayout!.overview}
         />
-        {/*<ul>*/}
-        {/*  {movies!.map((item) => (*/}
-        {/*    <div key={item.id}>*/}
-        {/*      <li key={item.id}>{item.title}</li>*/}
-        {/*      <img*/}
-        {/*        alt="Movies img"*/}
-        {/*        style={{ height: "100px", width: "200px" }}*/}
-        {/*        src={`https://image.tmdb.org/t/p/w300${item.backdrop_path}`}*/}
-        {/*      />*/}
-        {/*    </div>*/}
-        {/*  ))}*/}
-        {/*</ul>*/}
-        <MovieList />
+        <MainPage>
+          <MovieList movies={movies} />
+        </MainPage>
       </Layout>
-    </>
+    </div>
   );
 }
 
