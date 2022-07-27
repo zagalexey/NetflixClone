@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Layout from "./components/Layout";
-import { results } from "../src/movieDB";
+import { results } from "./data/movieDB";
 import MovieList from "./components/MovieList";
 import IntroMovie from "./components/IntroMovie";
 import MainPage from "./components/MainPage";
@@ -66,14 +66,14 @@ function App() {
   };
 
   return (
-    <div className={'w-screen h-full'}>
+    <div className={'w-screen h-screen'}>
+      <Navbar />
       <Layout
         title={movieLayout ? movieLayout.title : null}
         overview={movieLayout ? movieLayout?.overview : null}
         imgPath={movieLayout ? movieLayout?.backdrop_path : null}
         adult={movieLayout ? movieLayout?.adult : null}
       >
-        <Navbar />
         <IntroMovie
           title={movieLayout!.title}
           overview={movieLayout!.overview}

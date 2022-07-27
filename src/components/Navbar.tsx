@@ -14,7 +14,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={"bg-black h-[4rem] overflow-auto w-full flex-1 sticky top-0 navbar"}>
+    <nav className={"bg-black h-[4rem] overflow-auto w-full sticky top-0 left-0 navbar"}>
       <div
         className={"h-full w-screen flex flex-row items-center justify-between"}
       >
