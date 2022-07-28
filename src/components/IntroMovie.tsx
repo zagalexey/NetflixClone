@@ -52,6 +52,10 @@ const IntroMovie = ({ title, overview }: IntoMovieProps) => {
           <Button type={"playBtn"} background={"red-100"} text={"black"} />
           <Button type={"infoBtn"} background={"red"} text={"black"} />
         </div>
+        <div className={'bg-black/50 absolute right-0 top-2/3 w-[100px] h-[35px] flex flex-row justify-start items-center'}>
+          <div className={'h-full w-[3px] bg-white'}></div>
+          <p className={'text-white pl-3'}>18+</p>
+        </div>
       </div>
     </div>
   );

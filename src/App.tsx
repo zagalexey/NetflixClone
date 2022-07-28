@@ -6,6 +6,7 @@ import { results } from "./data/movieDB";
 import MovieList from "./components/MovieList";
 import IntroMovie from "./components/IntroMovie";
 import MainPage from "./components/MainPage";
+import Footer from "./components/Footer";
 
 type movieType = {
   adult: boolean;
@@ -66,7 +67,7 @@ function App() {
   };
 
   return (
-    <div className={'w-screen h-screen'}>
+    <div className={'w-100% h-[auto]'}>
       <Navbar />
       <Layout
         title={movieLayout ? movieLayout.title : null}
@@ -82,6 +83,7 @@ function App() {
           <MovieList movies={movies} />
         </MainPage>
       </Layout>
+      <Footer />
     </div>
   );
 }
