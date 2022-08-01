@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import "./App.css";
+import React, {createContext, useState} from "react";
 import Navbar from "./components/Navbar";
 import Layout from "./components/Layout";
 import { results } from "./data/movieDB";
@@ -7,6 +6,8 @@ import MovieList from "./components/MovieList";
 import IntroMovie from "./components/IntroMovie";
 import MainPage from "./components/MainPage";
 import Footer from "./components/Footer";
+import InfoModal from "./components/InfoModal";
+
 
 type movieType = {
   adult: boolean;
@@ -33,6 +34,7 @@ function App() {
   const [movies, setMovies] = useState<movieType[] | null>(results);
   // const [movieLayout, setMovieLayout] = useState<movieType>()
   const [movieLayout, setMovieLayout] = useState<movieType | null>(results[2]);
+  const [modal, setModal] = useState(false)
 
   // setMovies(results)
   // setMovieLayout(results[0])
@@ -62,12 +64,23 @@ function App() {
     }
   };
 
+  const onInfoHandler = ():void => {
+    setModal(true)
+    console.log(modal);
+  }
+
+  const onInfoModalClose = ():void => {
+    setModal(false)
+  }
+
+
   window.onscroll = function () {
     onScroll();
   };
 
   return (
     <div className={'w-100% h-[auto]'}>
+      {modal ? <InfoModal onInfoModalClose={onInfoModalClose} movie={movieLayout}/> : <></>}
       <Navbar />
       <Layout
         title={movieLayout ? movieLayout.title : null}
@@ -78,6 +91,7 @@ function App() {
         <IntroMovie
           title={movieLayout!.title}
           overview={movieLayout!.overview}
+          onInfoHandler={onInfoHandler}
         />
         <MainPage>
           <MovieList movies={movies} />

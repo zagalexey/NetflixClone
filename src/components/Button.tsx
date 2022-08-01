@@ -4,11 +4,12 @@ interface ButtonProps {
   type: string;
   background: string;
   text: string;
+  onClick?: () => void
 }
 
-const Button = ({ type, background, text }: ButtonProps) => {
+const Button = ({ type, background, text, onClick }: ButtonProps) => {
   return (
-    <button className={"w-fit h-[3.5rem]"}>
+    <button onClick={onClick} className={"w-fit h-[3.5rem]"}>
       {type === "playBtn" ? (
         <div
           className={

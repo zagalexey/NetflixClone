@@ -1,16 +1,15 @@
 import React from "react";
 import "../styles/Navbar.css";
 
-//todo Add key property to list items
 
 const Navbar = () => {
   const navbarLinks = [
-    "Home",
-    "TV Shows",
-    "Movies",
-    "New & Popular",
-    "My List",
-    "Browse by Languages",
+    {name: 'Home', path: '/'},
+    {name: 'TV Shows', path: '/'},
+    {name: 'Movies', path: '/'},
+    {name: 'New & Popular', path: '/'},
+    {name: 'My List', path: '/my-list'},
+    {name: 'Browse by Languages', path: '/'},
   ];
 
   return (
@@ -27,9 +26,9 @@ const Navbar = () => {
             />
           </a>
           <ul className={"flex flex-row gap-6 ml-10"}>
-            {navbarLinks.map((item) => (
-              <a href={"/"}>
-                <li className={"text-white text-[.7rem]"}>{item}</li>
+            {navbarLinks.map((item, index) => (
+              <a href={item.path}>
+                <li key={index} className={"text-white text-[.7rem]"}>{item.name}</li>
               </a>
             ))}
           </ul>

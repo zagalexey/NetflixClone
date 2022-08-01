@@ -10,6 +10,8 @@ interface MovieItemProps {
 const MovieItem = ({movie}: MovieItemProps) => {
 
     const [hover, setHover] = useState(false)
+    const [like, setLike] = useState(false)
+    const [introPlay, setIntroPlay] = useState(false)
 
     const genreList = genres
 
@@ -21,6 +23,14 @@ const MovieItem = ({movie}: MovieItemProps) => {
             }
         })
         return genreName
+    }
+
+    const onPlayHandler = () => {
+        setIntroPlay(true)
+    }
+
+    const likeHandler = () => {
+        setLike(prev => !prev)
     }
 
     const onHoverOn = () => {
@@ -47,6 +57,7 @@ const MovieItem = ({movie}: MovieItemProps) => {
                 (<div
                     className={'bg-black absolute transform h-fit w-[210px] -translate-x-[35px] -translate-y-[80px] rounded-lg'}
                     key={movie.id}>
+                    {like ? <i className="fa-solid fa-heart text-red-600 fixed top-2 right-2"></i> : <></>}
                     <div className={'w-full h-full'}>
                         <img
                             className={"rounded-lg"}
@@ -55,9 +66,9 @@ const MovieItem = ({movie}: MovieItemProps) => {
                             src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                         />
                         <div className={'flex flex-row justify-start items-center my-2 gap-4'}>
-                            <button className={'text-white text-[1.5rem]'}><i className="fa-solid fa-circle-play"></i></button>
+                            <button onClick={onPlayHandler} className={'text-white text-[1.5rem]'}><i className="fa-solid fa-circle-play"></i></button>
                             <button className={'text-white text-[1.5rem]'}><i className="fa-solid fa-plus"></i></button>
-                            <button className={'text-white text-[1.5rem]'}><i className="fa-solid fa-thumbs-up"></i></button>
+                            <button onClick={likeHandler} className={'text-white text-[1.5rem]'}><i className="fa-solid fa-thumbs-up"></i></button>
                         </div>
                         <div className={'w-full h-full my-2'}>
                             <ul className={'flex w-full flex-row flex-wrap justify-start items-center'}>

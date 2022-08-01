@@ -1,4 +1,6 @@
-export const results = [
+import {movieType} from "../interface/interface";
+
+export const results: movieType[] = [
     {
         adult: false,
         backdrop_path: "/393mh1AJ0GYWVD7Hsq5KkFaTAoT.jpg",
